@@ -1,0 +1,2740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?cocoon-format type="text/xml"?>
+<asap:SchedulingPeriod xmlns:asap="http://www.staffrostersolutions.com/Asap3"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="BCV-4.13.1"
+                       xsi:schemaLocation="SchedulingPeriod-3.0.xsd">
+    <StartDate>2005-02-21</StartDate>
+    <EndDate>2005-03-21</EndDate>
+
+    <ShiftTypes>
+        <Shift ID="D">
+            <Label>D</Label>
+            <Color>#66FF66</Color>
+            <Name>Dagdienst</Name>
+            <StartTime>07:30:00</StartTime>
+            <EndTime>18:30:00</EndTime>
+            <TimeUnits>8</TimeUnits>
+        </Shift>
+        <Shift ID="V">
+            <Label>V</Label>
+            <Color>Pink</Color>
+            <Name>Vroegdienst</Name>
+            <StartTime>06:30:00</StartTime>
+            <EndTime>15:30:00</EndTime>
+            <TimeUnits>8</TimeUnits>
+        </Shift>
+        <Shift ID="L">
+            <Label>L</Label>
+            <Color>Blue</Color>
+            <Name>Onderbr Laat</Name>
+            <StartTime>08:00:00</StartTime>
+            <EndTime>21:00:00</EndTime>
+            <TimeUnits>8</TimeUnits>
+        </Shift>
+        <Shift ID="DH">
+            <Label>DH</Label>
+            <Color>Red</Color>
+            <Name>Dagdiensthoofd</Name>
+            <StartTime>08:00:00</StartTime>
+            <EndTime>18:00:00</EndTime>
+            <TimeUnits>8</TimeUnits>
+        </Shift>
+    </ShiftTypes>
+
+    <ShiftGroups>
+        <ShiftGroup ID="NotDH">
+            <Shift>V</Shift>
+            <Shift>D</Shift>
+            <Shift>L</Shift>
+        </ShiftGroup>
+        <ShiftGroup ID="ON">
+            <Shift>V</Shift>
+            <Shift>D</Shift>
+            <Shift>DH</Shift>
+            <Shift>L</Shift>
+        </ShiftGroup>
+    </ShiftGroups>
+
+    <Contracts>
+        <Contract ID="stan.wa">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>10000</Weight>
+                        <Label>Only DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>NotDH</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Both days on or off on weekend</Label>
+                    </Max>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Friday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Friday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Friday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>30</Weight>
+                        <Label>No Sundays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Sunday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 5 consecutive shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+            </Patterns>
+            <Workload>
+                <TimeUnits>
+                    <Max>
+                        <Count>152</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 152 time units</Label>
+                    </Max>
+                </TimeUnits>
+            </Workload>
+
+
+            <!--
+    <ValidShiftTypeSuccessions on="1">
+      <Succession><ShiftTypeID1></ShiftTypeID1><ShiftTypeID2></ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1></ShiftTypeID1><ShiftTypeID2>D</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1></ShiftTypeID1><ShiftTypeID2>DH</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>D</ShiftTypeID1><ShiftTypeID2></ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>D</ShiftTypeID1><ShiftTypeID2>D</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>V</ShiftTypeID1><ShiftTypeID2></ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>V</ShiftTypeID1><ShiftTypeID2>D</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>N</ShiftTypeID1><ShiftTypeID2></ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>N</ShiftTypeID1><ShiftTypeID2>D</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>L</ShiftTypeID1><ShiftTypeID2></ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>L</ShiftTypeID1><ShiftTypeID2>D</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>DH</ShiftTypeID1><ShiftTypeID2></ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>DH</ShiftTypeID1><ShiftTypeID2>D</ShiftTypeID2></Succession>
+      <Succession><ShiftTypeID1>DH</ShiftTypeID1><ShiftTypeID2>DH</ShiftTypeID2></Succession>
+    </ValidShiftTypeSuccessions>
+-->
+        </Contract>
+
+        <Contract ID="AnnVWE1_8_10.wa">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>No DH shifts (low priority)</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>15</Count>
+                        <Weight>10</Weight>
+                        <Label>Max 15 shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 4 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <Start>24</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Min 2 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <Start>0</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 3 consecutive free days</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Both days on or off on weekend</Label>
+                    </Max>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 3 Fridays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Friday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 Saturdays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 Sundays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Sunday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>12</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 12 D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>8</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 8 L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>8</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 8 V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 3 consecutive D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <NotShift>D</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 3 consecutive V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <NotShift>V</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <NotShift>L</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Min 2 consecutive DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                        <NotShift>DH</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>10</Weight>
+                        <Label>No D-DH</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>10</Weight>
+                        <Label>No DH-D</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+            <Workload>
+                <TimeUnits>
+                    <Max>
+                        <Count>152</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 152 time units</Label>
+                    </Max>
+                </TimeUnits>
+            </Workload>
+        </Contract>
+
+        <Contract ID="AnnV.wa">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>No DH shifts (low priority)</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>10</Weight>
+                        <Label>Max 16 shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 4 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <Start>24</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Min 2 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <Start>0</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 5 consecutive free days</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Min 2 consecutive free days</Label>
+                    </Max>
+
+                    <Pattern>
+                        <Start>0</Start>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Both days on or off on weekend</Label>
+                    </Max>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 16 D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 3 consecutive D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <NotShift>D</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <NotShift>V</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <NotShift>L</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>5</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>12</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+            </Patterns>
+            <Workload>
+                <TimeUnits>
+                    <Max>
+                        <Count>122</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 122 time units</Label>
+                    </Max>
+                </TimeUnits>
+            </Workload>
+        </Contract>
+
+        <Contract ID="AnnV.wa_NoDH">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>10000</Weight>
+                        <Label>No DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>10</Weight>
+                        <Label>Max 16 shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 4 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <Start>24</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Min 2 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <Start>0</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 5 consecutive free days</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Min 2 consecutive free days</Label>
+                    </Max>
+
+                    <Pattern>
+                        <Start>0</Start>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Both days on or off on weekend</Label>
+                    </Max>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 16 D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 3 consecutive D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <NotShift>D</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <NotShift>V</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <NotShift>L</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>5</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>12</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+            </Patterns>
+            <Workload>
+                <TimeUnits>
+                    <Max>
+                        <Count>122</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 122 time units</Label>
+                    </Max>
+                </TimeUnits>
+            </Workload>
+        </Contract>
+
+        <Contract ID="HeidiF.wa">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>No DH shifts (low priority)</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>10</Weight>
+                        <Label>Max 16 shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 4 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <Start>24</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Min 2 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <Start>0</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 5 consecutive free days</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Min 2 consecutive free days</Label>
+                    </Max>
+
+                    <Pattern>
+                        <Start>0</Start>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Both days on or off on weekend</Label>
+                    </Max>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 Fridays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Friday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 Mondays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Monday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 16 D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 3 consecutive D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <NotShift>D</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <NotShift>V</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <NotShift>L</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>5</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>12</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+            </Patterns>
+            <Workload>
+                <TimeUnits>
+                    <Max>
+                        <Count>122</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 122 time units</Label>
+                    </Max>
+                </TimeUnits>
+            </Workload>
+        </Contract>
+
+        <Contract ID="HeidiF.wa_NoDH">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>10000</Weight>
+                        <Label>No DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>10</Weight>
+                        <Label>Max 16 shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 4 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <Start>24</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Min 2 consecutive working days</Label>
+                    </Max>
+                    <Pattern>
+                        <Start>0</Start>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 5 consecutive free days</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Min 2 consecutive free days</Label>
+                    </Max>
+
+                    <Pattern>
+                        <Start>0</Start>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>50</Weight>
+                        <Label>Max working weekends in four weeks</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>1</Weight>
+                        <Label>Both days on or off on weekend</Label>
+                    </Max>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <NotGroup>ON</NotGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <NotGroup>ON</NotGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 Fridays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Friday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 Mondays</Label>
+                    </Max>
+                    <Pattern>
+                        <StartDay>Monday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>16</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 16 D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 7 DH shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>DH</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 3 consecutive D shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <Shift>D</Shift>
+                        <NotShift>D</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive V shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <Shift>V</Shift>
+                        <NotShift>V</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                        <Label>Max 2 consecutive L shifts</Label>
+                    </Max>
+                    <Pattern>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <Shift>L</Shift>
+                        <NotShift>L</NotShift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>14</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>3</Count>
+                        <Weight>30</Weight>
+                        <Label>Max shift types per week</Label>
+                    </Max>
+                    <RegionStart>21</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+                    <Pattern>
+                        <Shift>L</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>5</RegionStart>
+                    <RegionEnd>20</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>30</Weight>
+                        <Label>Max 2 consecutive working weekends</Label>
+                    </Max>
+                    <RegionStart>12</RegionStart>
+                    <RegionEnd>27</RegionEnd>
+
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <ShiftGroup>ON</ShiftGroup>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <ShiftGroup>ON</ShiftGroup>
+                    </Pattern>
+
+                </Match>
+            </Patterns>
+            <Workload>
+                <TimeUnits>
+                    <Max>
+                        <Count>122</Count>
+                        <Weight>20</Weight>
+                        <Label>Max 122 time units</Label>
+                    </Max>
+                </TimeUnits>
+            </Workload>
+        </Contract>
+    </Contracts>
+
+    <Employees>
+        <Employee ID="A">
+            <Name>A</Name>
+            <ContractID>stan.wa</ContractID>
+        </Employee>
+        <Employee ID="B">
+            <Name>B</Name>
+            <ContractID>AnnVWE1_8_10.wa</ContractID>
+        </Employee>
+        <Employee ID="3">
+            <Name>C</Name>
+            <ContractID>AnnV.wa</ContractID>
+        </Employee>
+        <Employee ID="4">
+            <Name>D</Name>
+            <ContractID>AnnV.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="6">
+            <Name>E</Name>
+            <ContractID>AnnV.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="7">
+            <Name>F</Name>
+            <ContractID>AnnV.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="5">
+            <Name>G</Name>
+            <ContractID>HeidiF.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="9">
+            <Name>H</Name>
+            <ContractID>HeidiF.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="11">
+            <Name>I</Name>
+            <ContractID>HeidiF.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="12">
+            <Name>J</Name>
+            <ContractID>HeidiF.wa_NoDH</ContractID>
+        </Employee>
+        <Employee ID="8">
+            <Name>K</Name>
+            <ContractID>HeidiF.wa</ContractID>
+        </Employee>
+        <Employee ID="10">
+            <Name>L</Name>
+            <ContractID>HeidiF.wa</ContractID>
+        </Employee>
+        <Employee ID="13">
+            <Name>M</Name>
+            <ContractID>HeidiF.wa</ContractID>
+        </Employee>
+    </Employees>
+    <CoverRequirements>
+        <DayOfWeekCover>
+            <Day>Saturday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Sunday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Monday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Tuesday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Wednesday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Thursday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Friday</Day>
+            <Cover>
+                <Shift>D</Shift>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>V</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>L</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>DH</Shift>
+                <Preferred>1</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+    </CoverRequirements>
+
+
+    <CoverWeights>
+        <PrefOverStaffing>10000</PrefOverStaffing>
+        <PrefUnderStaffing>10000</PrefUnderStaffing>
+    </CoverWeights>
+
+</asap:SchedulingPeriod>

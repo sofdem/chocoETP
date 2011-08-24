@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        targetNamespace="http://www.staffrostersolutions.com/Asap3"
+        xmlns="http://www.staffrostersolutions.com/Asap3"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified"
+        >
+
+    <!--
+CHANGES 
+
+13/Feb/2009 - 12/May/2009
+- Version 3.0
+- Major changes between this and previous version (2.4).
+- Removed a lot of unnecessary elements!
+-->
+
+    <xs:element name="SchedulingPeriod">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="StartDate" type="xs:date"/>
+                <xs:element name="EndDate" type="xs:date"/>
+                <xs:element name="Skills" type="Skills" minOccurs="0"/>
+                <xs:element name="SkillGroups" type="SkillGroups" minOccurs="0"/>
+                <xs:element name="ShiftTypes" type="ShiftTypes"/>
+                <xs:element name="ShiftGroups" type="ShiftGroups" minOccurs="0"/>
+                <xs:element name="Contracts" type="Contracts"/>
+                <xs:element name="Employees" type="Employees"/>
+                <xs:element name="CoverRequirements" type="CoverRequirements"/>
+                <xs:element name="CoverWeights" type="CoverWeights" minOccurs="0"/>
+                <xs:element name="DayOffRequests" type="DayOffRequests" minOccurs="0"/>
+                <xs:element name="DayOnRequests" type="DayOnRequests" minOccurs="0"/>
+                <xs:element name="ShiftOffRequests" type="ShiftOffRequests" minOccurs="0"/>
+                <xs:element name="ShiftOnRequests" type="ShiftOnRequests" minOccurs="0"/>
+                <xs:element name="FixedAssignments" type="FixedAssignments" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="ID" type="xs:string" use="optional"/>
+            <xs:attribute name="OrganisationID" type="xs:string" use="optional"/>
+        </xs:complexType>
+
+        <!-- Define Keys to ensure no duplicate ID's within elements -->
+        <xs:key name="SkillID">
+            <xs:selector xpath="Skills/Skill"/>
+            <xs:field xpath="@ID"/>
+        </xs:key>
+        <xs:key name="SkillGroupID">
+            <xs:selector xpath="SkillGroups/SkillGroup"/>
+            <xs:field xpath="@ID"/>
+        </xs:key>
+        <xs:key name="ShiftID">
+            <xs:selector xpath="ShiftTypes/Shift"/>
+            <xs:field xpath="@ID"/>
+        </xs:key>
+        <xs:key name="ShiftGroupID">
+            <xs:selector xpath="ShiftGroups/ShiftGroup"/>
+            <xs:field xpath="@ID"/>
+        </xs:key>
+        <xs:key name="ContractID">
+            <xs:selector xpath="Contracts/Contract"/>
+            <xs:field xpath="@ID"/>
+        </xs:key>
+        <xs:key name="EmployeeID">
+            <xs:selector xpath="Employees/Employee"/>
+            <xs:field xpath="@ID"/>
+        </xs:key>
+
+        <!-- Define KeyRefs to ensure no referencing of keys which don't exist -->
+        <xs:keyref name="KeyRef1" refer="SkillID">
+            <xs:selector xpath="ShiftTypes/Shift/Skills/Skill"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef2" refer="ShiftID">
+            <xs:selector xpath="ShiftGroups/ShiftGroup/Shift"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef3" refer="SkillID">
+            <xs:selector xpath="SkillGroups/SkillGroup/Skill"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef4" refer="ContractID">
+            <xs:selector xpath="Employees/Employee/ContractID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef5" refer="SkillID">
+            <xs:selector xpath="Employees/Employee/Skills/Skill"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef6" refer="ShiftID">
+            <xs:selector xpath="Contracts/Contract/Patterns/Match/Pattern/NotShift"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef7" refer="ShiftGroupID">
+            <xs:selector xpath="Contracts/Contract/Patterns/Match/Pattern/ShiftGroup"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef8" refer="ShiftGroupID">
+            <xs:selector xpath="Contracts/Contract/Patterns/Match/Pattern/NotGroup"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef12" refer="SkillID">
+            <xs:selector xpath="CoverRequirements/DayOfWeekCover/Cover/Skill"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef13" refer="SkillID">
+            <xs:selector xpath="CoverRequirements/DateSpecificCover/Cover/Skill"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef14" refer="SkillGroupID">
+            <xs:selector xpath="CoverRequirements/DayOfWeekCover/Cover/SkillGroup"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef15" refer="SkillGroupID">
+            <xs:selector xpath="CoverRequirements/DateSpecificCover/Cover/SkillGroup"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef16" refer="ShiftID">
+            <xs:selector xpath="CoverRequirements/DayOfWeekCover/Cover/Shift"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef17" refer="ShiftID">
+            <xs:selector xpath="CoverRequirements/DateSpecificCover/Cover/Shift"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef18" refer="ShiftGroupID">
+            <xs:selector xpath="CoverRequirements/DayOfWeekCover/Cover/ShiftGroup"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef19" refer="ShiftGroupID">
+            <xs:selector xpath="CoverRequirements/DateSpecificCover/Cover/ShiftGroup"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef20" refer="EmployeeID">
+            <xs:selector xpath="DayOffRequests/DayOff/EmployeeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef21" refer="EmployeeID">
+            <xs:selector xpath="DayOnRequests/DayOn/EmployeeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef22" refer="ShiftID">
+            <xs:selector xpath="ShiftOffRequests/ShiftOff/ShiftTypeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef23" refer="EmployeeID">
+            <xs:selector xpath="ShiftOffRequests/ShiftOff/EmployeeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef24" refer="ShiftID">
+            <xs:selector xpath="ShiftOnRequests/ShiftOn/ShiftTypeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef25" refer="ShiftGroupID">
+            <xs:selector xpath="ShiftOnRequests/ShiftOn/ShiftGroupID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef26" refer="EmployeeID">
+            <xs:selector xpath="ShiftOnRequests/ShiftOn/EmployeeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef27" refer="ShiftID">
+            <xs:selector xpath="ShiftOnRequests/ShiftOn/ShiftGroup/Shift"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref name="KeyRef28" refer="EmployeeID">
+            <xs:selector xpath="FixedAssignments/Employee/EmployeeID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+    </xs:element>
+
+    <xs:complexType name="Skills">
+        <xs:sequence>
+            <xs:element name="Skill" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="Label" type="xs:string" minOccurs="1"/>
+                    </xs:all>
+                    <xs:attribute name="ID" type="ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SkillGroups">
+        <xs:sequence>
+            <xs:element name="SkillGroup" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Skill" minOccurs="1" maxOccurs="unbounded" type="ID"/>
+                    </xs:sequence>
+                    <xs:attribute name="ID" type="ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ShiftTypes">
+        <xs:sequence>
+            <xs:element name="Shift" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="StartTime" type="xs:time" minOccurs="0"/>
+                        <xs:element name="EndTime" type="xs:time" minOccurs="0"/>
+                        <xs:element name="Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Label" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Color" type="xs:string" minOccurs="0"/>
+                        <xs:element name="TimeUnits" type="xs:nonNegativeInteger" minOccurs="0"/>
+                        <xs:element name="AutoAllocate" type="xs:boolean" minOccurs="0"/>
+                    </xs:all>
+                    <xs:attribute name="ID" type="ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ShiftGroups">
+        <xs:sequence>
+            <xs:element name="ShiftGroup" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Shift" minOccurs="1" maxOccurs="unbounded" type="ID"/>
+                    </xs:sequence>
+                    <xs:attribute name="ID" type="ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Contracts">
+        <xs:sequence>
+            <xs:element name="Contract" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="Label" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Workload" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="TimeUnits" type="TimeUnits" minOccurs="1" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Patterns" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Match" type="PatternMatch" minOccurs="1" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:all>
+                    <xs:attribute name="ID" type="ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Employees">
+        <xs:sequence>
+            <xs:element name="Employee" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="ContractID" type="ID" minOccurs="0"/>
+                        <xs:element name="InRoster" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="Name" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Skills" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Skill" type="ID" minOccurs="1" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:all>
+                    <xs:attribute name="ID" type="ID" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimeUnits">
+        <xs:sequence>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element name="Max" type="MinMaxCount"/>
+                    <xs:element name="Min" type="MinMaxCount" minOccurs="0"/>
+                </xs:sequence>
+                <xs:sequence>
+                    <xs:element name="Min" type="MinMaxCount"/>
+                    <xs:element name="Max" type="MinMaxCount" minOccurs="0"/>
+                </xs:sequence>
+            </xs:choice>
+            <xs:choice>
+                <xs:element name="RegionStart" type="xs:nonNegativeInteger" minOccurs="0"/>
+                <xs:element name="RegionStartDate" type="xs:date" minOccurs="0"/>
+            </xs:choice>
+            <xs:choice>
+                <xs:element name="RegionEnd" type="xs:nonNegativeInteger" minOccurs="0"/>
+                <xs:element name="RegionEndDate" type="xs:date" minOccurs="0"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PatternMatch">
+        <xs:sequence>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element name="Max" type="MinMaxCount"/>
+                    <xs:element name="Min" type="MinMaxCount" minOccurs="0"/>
+                </xs:sequence>
+                <xs:sequence>
+                    <xs:element name="Min" type="MinMaxCount"/>
+                    <xs:element name="Max" type="MinMaxCount" minOccurs="0"/>
+                </xs:sequence>
+            </xs:choice>
+            <xs:choice>
+                <xs:element name="RegionStart" type="xs:nonNegativeInteger" minOccurs="0"/>
+                <xs:element name="RegionStartDate" type="xs:date" minOccurs="0"/>
+            </xs:choice>
+            <xs:choice>
+                <xs:element name="RegionEnd" type="xs:nonNegativeInteger" minOccurs="0"/>
+                <xs:element name="RegionEndDate" type="xs:date" minOccurs="0"/>
+            </xs:choice>
+            <xs:element name="Pattern" type="Pattern" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Pattern">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="Start" type="xs:nonNegativeInteger" minOccurs="0"/>
+                <xs:element name="StartDay" type="WeekDay" minOccurs="0"/>
+                <xs:element name="StartDate" type="xs:date" minOccurs="0"/>
+            </xs:choice>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="Shift" type="xs:string"/>
+                <!-- Type is string as it could be a day off i.e. '-' or '*' or '$' etc. -->
+                <xs:element name="NotShift" type="ID"/>
+                <xs:element name="ShiftGroup" type="ID"/>
+                <xs:element name="NotGroup" type="ID"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MinMaxCount">
+        <xs:all>
+            <xs:element name="Count" type="xs:nonNegativeInteger"/>
+            <xs:element name="Weight" minOccurs="0">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:nonNegativeInteger">
+                            <xs:attribute name="function" type="Function" use="optional"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Label" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="CoverRequirements">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="DayOfWeekCover">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Day" type="WeekDay"/>
+                        <xs:element name="Cover" type="Cover" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DateSpecificCover">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Date" type="xs:date"/>
+                        <xs:element name="Cover" type="Cover" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="Cover">
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="Skill" type="ID" minOccurs="0"/>
+                <xs:element name="SkillGroup" type="ID" minOccurs="0"/>
+            </xs:choice>
+            <xs:choice>
+                <xs:element name="TimePeriod" type="TimePeriod"/>
+                <xs:element name="Shift" type="ID"/>
+                <!-- <xs:element name="ShiftGroup" type="ID"/>  Does this make sense? Or do we have any instances which use this? -->
+            </xs:choice>
+            <xs:element name="Min" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="Max" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="Preferred" type="xs:nonNegativeInteger" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimePeriod">
+        <xs:all>
+            <xs:element name="Start" type="xs:time" minOccurs="1"/>
+            <xs:element name="End" type="xs:time" minOccurs="1"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="CoverWeights">
+        <xs:all>
+            <xs:element name="PrefOverStaffing" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="PrefUnderStaffing" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="MaxOverStaffing" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="MinUnderStaffing" type="xs:nonNegativeInteger" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="DayOffRequests">
+        <xs:sequence>
+            <xs:element name="DayOff" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="EmployeeID" type="ID"/>
+                        <xs:choice>
+                            <xs:element name="Date" type="xs:date"/>
+                            <xs:element name="Day" type="xs:nonNegativeInteger"/>
+                            <!-- Starts at zero -->
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="weight" type="xs:nonNegativeInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DayOnRequests">
+        <xs:sequence>
+            <xs:element name="DayOn" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="EmployeeID" type="ID"/>
+                        <xs:choice>
+                            <xs:element name="Date" type="xs:date"/>
+                            <xs:element name="Day" type="xs:nonNegativeInteger"/>
+                            <!-- Starts at zero -->
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="weight" type="xs:nonNegativeInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ShiftOffRequests">
+        <xs:sequence>
+            <xs:element name="ShiftOff" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ShiftTypeID" type="ID"/>
+                        <xs:element name="EmployeeID" type="ID"/>
+                        <xs:choice>
+                            <xs:element name="Date" type="xs:date"/>
+                            <xs:element name="Day" type="xs:nonNegativeInteger"/>
+                            <!-- Starts at zero -->
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="weight" type="xs:nonNegativeInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ShiftOnRequests">
+        <xs:sequence>
+            <xs:element name="ShiftOn" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:choice>
+                            <xs:element name="ShiftTypeID" type="ID"/>
+                            <xs:element name="ShiftGroupID" type="ID"/>
+                            <xs:element name="ShiftGroup">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Shift" minOccurs="1" maxOccurs="unbounded" type="ID"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                        <xs:element name="EmployeeID" type="ID"/>
+                        <xs:choice>
+                            <xs:element name="Date" type="xs:date"/>
+                            <xs:element name="Day" type="xs:nonNegativeInteger"/>
+                            <!-- Starts at zero -->
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="weight" type="xs:nonNegativeInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FixedAssignments">
+        <xs:sequence>
+            <xs:element name="Employee" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="EmployeeID" type="ID"/>
+                        <xs:element name="Assign" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Shift" type="xs:string"/>
+                                    <!-- Not an ID as it could be '-' i.e. day off -->
+                                    <xs:choice>
+                                        <xs:element name="Date" type="xs:date"/>
+                                        <xs:element name="Day" type="xs:nonNegativeInteger"/>
+                                        <!-- Starts at zero -->
+                                    </xs:choice>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="WeekDay">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="([Ss][Uu][Nn][Dd][Aa][Yy])|([Mm][Oo][Nn][Dd][Aa][Yy])|([Tt][Uu][Ee][Ss][Dd][Aa][Yy])|([Ww][Ee][Dd][Nn][Ee][Ss][Dd][Aa][Yy])|([Tt][Hh][Uu][Rr][Ss][Dd][Aa][Yy])|([Ff][Rr][Ii][Dd][Aa][Yy])|([Ss][Aa][Tt][Uu][Rr][Dd][Aa][Yy])"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Function">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="([Ll][Ii][Nn][Ee][Aa][Rr])|([Qq][Uu][Aa][Dd][Rr][Aa][Tt][Ii][Cc])|([Cc][Oo][Nn][Ss][Tt][Aa][Nn][Tt])"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ID">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-zA-Z0-9._])+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema> 
+

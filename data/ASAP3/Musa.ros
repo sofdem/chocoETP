@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?cocoon-format type="text/xml"?>
+<asap:SchedulingPeriod xmlns:asap="http://www.staffrostersolutions.com/Asap3"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="Musa"
+                       xsi:schemaLocation="SchedulingPeriod-3.0.xsd">
+    <StartDate>1984-09-10</StartDate>
+    <EndDate>1984-09-23</EndDate>
+
+    <Skills>
+        <Skill ID="RN">
+            <Label>RN</Label>
+        </Skill>
+        <Skill ID="LPN">
+            <Label>LPN</Label>
+        </Skill>
+        <Skill ID="NA">
+            <Label>NA</Label>
+        </Skill>
+    </Skills>
+
+
+    <ShiftTypes>
+        <Shift ID="D">
+            <Label>D</Label>
+            <Color>Blue</Color>
+            <Name>Day</Name>
+            <StartTime>08:00:00</StartTime>
+            <EndTime>17:00:00</EndTime>
+        </Shift>
+    </ShiftTypes>
+
+
+    <Contracts>
+        <Contract ID="FullTime_1">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="FullTime_2">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="FullTime_5">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="FullTime_6">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="FullTime_7">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>7</RegionStart>
+                    <RegionEnd>13</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="FullTime_9">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="FullTime_10">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>5</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <RegionStart>0</RegionStart>
+                    <RegionEnd>6</RegionEnd>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>5</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+
+        <Contract ID="PartTime6">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>6</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>8</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="PartTime4">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>10</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="PartTime4_3">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+        <Contract ID="PartTime2">
+            <Patterns>
+                <Match>
+                    <Max>
+                        <Count>2</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>D</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>12</Count>
+                        <Weight>9</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+    </Contracts>
+
+    <Employees>
+        <Employee ID="1">
+            <ContractID>FullTime_1</ContractID>
+            <Name>1</Name>
+            <Skills>
+                <Skill>RN</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="2">
+            <ContractID>FullTime_2</ContractID>
+            <Name>2</Name>
+            <Skills>
+                <Skill>RN</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="3">
+            <ContractID>PartTime4_3</ContractID>
+            <Name>3</Name>
+            <Skills>
+                <Skill>RN</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="4">
+            <ContractID>PartTime6</ContractID>
+            <Name>4</Name>
+            <Skills>
+                <Skill>LPN</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="5">
+            <ContractID>FullTime_5</ContractID>
+            <Name>5</Name>
+            <Skills>
+                <Skill>LPN</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="6">
+            <ContractID>FullTime_6</ContractID>
+            <Name>6</Name>
+            <Skills>
+                <Skill>NA</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="7">
+            <ContractID>FullTime_7</ContractID>
+            <Name>7</Name>
+            <Skills>
+                <Skill>NA</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="8">
+            <ContractID>PartTime4</ContractID>
+            <Name>8</Name>
+            <Skills>
+                <Skill>NA</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="9">
+            <ContractID>FullTime_9</ContractID>
+            <Name>9</Name>
+            <Skills>
+                <Skill>NA</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="10">
+            <ContractID>FullTime_10</ContractID>
+            <Name>10</Name>
+            <Skills>
+                <Skill>NA</Skill>
+            </Skills>
+        </Employee>
+        <Employee ID="11">
+            <ContractID>PartTime2</ContractID>
+            <Name>11</Name>
+            <Skills>
+                <Skill>NA</Skill>
+            </Skills>
+        </Employee>
+    </Employees>
+
+    <CoverRequirements>
+        <DayOfWeekCover>
+            <Day>Monday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Tuesday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Wednesday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Thursday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Friday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Saturday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Sunday</Day>
+            <Cover>
+                <Skill>RN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>3</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>LPN</Skill>
+                <Shift>D</Shift>
+                <Min>1</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Skill>NA</Skill>
+                <Shift>D</Shift>
+                <Min>2</Min>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+    </CoverRequirements>
+
+    <CoverWeights>
+        <MinUnderStaffing>7</MinUnderStaffing>
+        <MaxOverStaffing>0</MaxOverStaffing>
+        <PrefOverStaffing>0</PrefOverStaffing>
+        <PrefUnderStaffing>5</PrefUnderStaffing>
+    </CoverWeights>
+
+    <DayOffRequests>
+        <DayOff weight="5">
+            <EmployeeID>1</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>1</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-16</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-15</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-16</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-15</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>4</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>4</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>5</EmployeeID>
+            <Date>1984-09-16</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>5</EmployeeID>
+            <Date>1984-09-15</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>6</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>6</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>7</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>7</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>8</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>8</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>9</EmployeeID>
+            <Date>1984-09-15</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>9</EmployeeID>
+            <Date>1984-09-16</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>10</EmployeeID>
+            <Date>1984-09-15</Date>
+        </DayOff>
+        <DayOff weight="5">
+            <EmployeeID>10</EmployeeID>
+            <Date>1984-09-16</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>11</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+        <DayOff weight="3">
+            <EmployeeID>11</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+
+
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-17</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-18</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-19</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-20</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-21</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-22</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>2</EmployeeID>
+            <Date>1984-09-23</Date>
+        </DayOff>
+
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-15</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-14</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-13</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-12</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-11</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-10</Date>
+        </DayOff>
+        <DayOff weight="10000">
+            <EmployeeID>3</EmployeeID>
+            <Date>1984-09-16</Date>
+        </DayOff>
+    </DayOffRequests>
+
+
+</asap:SchedulingPeriod>

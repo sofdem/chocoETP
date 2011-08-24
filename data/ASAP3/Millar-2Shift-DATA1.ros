@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?cocoon-format type="text/xml"?>
+<asap:SchedulingPeriod xmlns:asap="http://www.staffrostersolutions.com/Asap3"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="Millar-2Shift-DATA1"
+                       OrganisationID="Victoria General Hospital, Halifax"
+                       xsi:schemaLocation="SchedulingPeriod-3.0.xsd">
+
+    <StartDate>1993-11-01</StartDate>
+    <EndDate>1993-11-14</EndDate>
+
+    <ShiftTypes>
+        <Shift ID="TD">
+            <Label>TD</Label>
+            <Color>HotPink</Color>
+            <Name>Day</Name>
+            <StartTime>06:00:00</StartTime>
+            <EndTime>18:00:00</EndTime>
+        </Shift>
+        <Shift ID="TN">
+            <Label>TN</Label>
+            <Color>LawnGreen</Color>
+            <Name>Night</Name>
+            <StartTime>18:00:00</StartTime>
+            <EndTime>06:00:00</EndTime>
+        </Shift>
+    </ShiftTypes>
+
+    <ShiftGroups>
+        <ShiftGroup ID="All">
+            <Shift>TN</Shift>
+            <Shift>TD</Shift>
+        </ShiftGroup>
+    </ShiftGroups>
+
+    <Contracts>
+        <Contract ID="All">
+
+            <Patterns>
+                <!--
+                          <Match>
+                            <Max><Count>7</Count><Weight>100</Weight><Label>Max 7 shifts</Label></Max>
+                            <Pattern><ShiftGroup>All</ShiftGroup></Pattern>
+                          </Match>
+                          -->
+                <Match>
+                    <Max>
+                        <Count>7</Count>
+                        <Weight>100</Weight>
+                        <Label>Max 7 days off</Label>
+                    </Max>
+                    <Min>
+                        <Count>7</Count>
+                        <Weight>100</Weight>
+                        <Label>Min 7 days off</Label>
+                    </Min>
+                    <Pattern>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>100</Weight>
+                        <Label>Max 4 TN shifts</Label>
+                    </Max>
+                    <Min>
+                        <Count>3</Count>
+                        <Weight>100</Weight>
+                        <Label>Min 3 TN shifts</Label>
+                    </Min>
+                    <Pattern>
+                        <Shift>TN</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>4</Count>
+                        <Weight>100</Weight>
+                        <Label>Max 4 TD shifts</Label>
+                    </Max>
+                    <Min>
+                        <Count>3</Count>
+                        <Weight>100</Weight>
+                        <Label>Min 3 TD shifts</Label>
+                    </Min>
+                    <Pattern>
+                        <Shift>TD</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>1</Count>
+                        <Weight>1000</Weight>
+                        <Label>Max 1 weekend off</Label>
+                    </Max>
+                    <Min>
+                        <Count>1</Count>
+                        <Weight>1000</Weight>
+                        <Label>Min 1 weekend off</Label>
+                    </Min>
+                    <Pattern>
+                        <StartDay>Saturday</StartDay>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>100</Weight>
+                        <Label>Min 2 consecutive working days</Label>
+                    </Max>
+
+                    <Pattern>
+                        <Start>0</Start>
+                        <Shift>$</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>$</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>100</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                        <Shift>-</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>100</Weight>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>100</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>TN</Shift>
+                        <Shift>TN</Shift>
+                        <Shift>TN</Shift>
+                        <Shift>TN</Shift>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>100</Weight>
+                    </Max>
+                    <Pattern>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                        <ShiftGroup>All</ShiftGroup>
+                        <Shift>-</Shift>
+                        <ShiftGroup>All</ShiftGroup>
+                    </Pattern>
+                </Match>
+                <Match>
+                    <Max>
+                        <Count>0</Count>
+                        <Weight>100</Weight>
+                    </Max>
+                    <Pattern>
+                        <Shift>TN</Shift>
+                        <Shift>TD</Shift>
+                    </Pattern>
+                </Match>
+            </Patterns>
+        </Contract>
+    </Contracts>
+
+    <Employees>
+        <Employee ID="1">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="2">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="3">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="4">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="5">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="6">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="7">
+            <ContractID>All</ContractID>
+        </Employee>
+        <Employee ID="8">
+            <ContractID>All</ContractID>
+        </Employee>
+    </Employees>
+
+    <CoverRequirements>
+        <DayOfWeekCover>
+            <Day>Monday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Tuesday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Wednesday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Thursday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Friday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Saturday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+        <DayOfWeekCover>
+            <Day>Sunday</Day>
+            <Cover>
+                <Shift>TN</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+            <Cover>
+                <Shift>TD</Shift>
+                <Preferred>2</Preferred>
+            </Cover>
+        </DayOfWeekCover>
+    </CoverRequirements>
+
+    <CoverWeights>
+        <PrefOverStaffing>100</PrefOverStaffing>
+        <PrefUnderStaffing>100</PrefUnderStaffing>
+    </CoverWeights>
+
+</asap:SchedulingPeriod>
