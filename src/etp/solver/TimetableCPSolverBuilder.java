@@ -45,7 +45,7 @@ public void buildSolver(EtpModel model, ETPOutput writer)
 
 protected void buildLNSSolver(EtpModel model, ETPOutput writer)
 {
-	solver = new LNSCPSolver(writer);
+	solver = new LNSCPSolver(writer, properties.allProperties);
 	solver.read(model);
 	this.setLimits();
 	this.setRestarts();

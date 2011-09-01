@@ -52,12 +52,13 @@ int objectiveLB;
 Collection<Neighborhood> neighborhoods;
 Collection<Solution> solutions; // todo SolutionPool
 AbstractIntBranchingStrategy defaultBranchingStrategy;
-//LNSCPConfiguration lnsConfiguration;
+LNSCPConfiguration lnsConfiguration;
 
 
-public LNSCPSolver(ETPOutput writer)
+public LNSCPSolver(ETPOutput writer, Properties properties)
 {
 	super(writer);
+	lnsConfiguration = new LNSCPConfiguration(properties);
 	solver = this;  // todo delegate rather than inherits
 	neighborhoods = new PriorityQueue<Neighborhood>();
 	solutions = new ArrayList<Solution>();
@@ -136,9 +137,9 @@ public void addNeighborhood(Neighborhood neighborhood)
 private Boolean initialSearch()
 {
 	solver.getConfiguration().putEnum(Configuration.RESOLUTION_POLICY, ResolutionPolicy.SATISFACTION);
-	Limit limit = Limit.FAIL; //lnsConfiguration.readEnum(LNSCPConfiguration.LNS_INIT_SEARCH_LIMIT, Limit.class);
+	Limit limit = lnsConfiguration.readEnum(LNSCPConfiguration.LNS_INIT_SEARCH_LIMIT, Limit.class);
 	solver.getConfiguration().putEnum(Configuration.SEARCH_LIMIT, limit);
-	solver.getConfiguration().putInt(Configuration.SEARCH_LIMIT_BOUND, 10000); //lnsConfiguration.readInt(LNSCPConfiguration.LNS_INIT_SEARCH_LIMIT_BOUND));
+	solver.getConfiguration().putInt(Configuration.SEARCH_LIMIT_BOUND, lnsConfiguration.readInt(LNSCPConfiguration.LNS_INIT_SEARCH_LIMIT_BOUND));
 
 
 	solver.worldPush();
@@ -233,9 +234,9 @@ public Boolean searchNeighborhood(Neighborhood neighborhood, Solution solution, 
 	solver.worldPush();
 
 	RestartFactory.cancelRestarts(solver);
-	Limit limit = Limit.FAIL; //lnsConfiguration.readEnum(LNSCPConfiguration.LNS_NEIGHBORHOOD_SEARCH_LIMIT, Limit.class);
+	Limit limit = lnsConfiguration.readEnum(LNSCPConfiguration.LNS_NEIGHBORHOOD_SEARCH_LIMIT, Limit.class);
 	solver.getConfiguration().putEnum(Configuration.SEARCH_LIMIT, limit);
-	solver.getConfiguration().putInt(Configuration.SEARCH_LIMIT_BOUND, 200); //lnsConfiguration.readInt(LNSCPConfiguration.LNS_NEIGHBORHOOD_SEARCH_LIMIT_BOUND));
+	solver.getConfiguration().putInt(Configuration.SEARCH_LIMIT_BOUND, lnsConfiguration.readInt(LNSCPConfiguration.LNS_NEIGHBORHOOD_SEARCH_LIMIT_BOUND));
 	solver.resetSearchStrategy();
 	solver.clearGoals();
 	if (neighborhood.getStrategy() != null) {

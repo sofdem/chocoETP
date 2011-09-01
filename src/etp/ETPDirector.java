@@ -262,7 +262,7 @@ public void evaluate()
 
 private static String readArgument(String[] args, String prefix, String suffixes)
 {
-	for (String suffix : suffixes.split("|")) {
+	for (String suffix : suffixes.split("\\|")) {
 		for (String arg : args) {
 			if (arg.endsWith(suffix) && arg.startsWith(prefix)) {
 				return arg;

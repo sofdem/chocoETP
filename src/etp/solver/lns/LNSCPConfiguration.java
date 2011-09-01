@@ -20,6 +20,7 @@ package etp.solver.lns;
 import choco.kernel.solver.Configuration;
 
 import java.lang.reflect.Field;
+import java.util.Properties;
 
 import static choco.kernel.common.util.tools.PropertyUtils.logOnFailure;
 
@@ -38,7 +39,7 @@ public class LNSCPConfiguration extends Configuration {
 public static final String LNS_INIT_SEARCH_LIMIT = "lns.initial.cp.search.limit.type";
 
 /** the limit value set on the B&B in the initial step of LNS */
-@Default(value = "1000")
+@Default(value = "10000")
 public static final String LNS_INIT_SEARCH_LIMIT_BOUND = "lns.initial.cp.search.limit.value";
 
 /**
@@ -49,20 +50,26 @@ public static final String LNS_INIT_SEARCH_LIMIT_BOUND = "lns.initial.cp.search.
 public static final String LNS_NEIGHBORHOOD_SEARCH_LIMIT = "lns.neighborhood.cp.search.limit.type";
 
 /** the limit value set on the backtracking in each neighborhood exploration of LNS */
-@Default(value = "1000")
+@Default(value = "200")
 public static final String LNS_NEIGHBORHOOD_SEARCH_LIMIT_BOUND = "lns.neighborhood.cp.search.limit.value";
 
 /** the number of iterations of the loop in the second step of LNS */
 @Default(value = "3")
 public static final String LNS_RUN_LIMIT_NUMBER = "lns.run.limit.number";
 
-/** a boolean indicating wether the CP model must be solved by LNS or B&B */
+/** a boolean indicating whether the CP model must be solved by LNS or B&B */
 @Default(value = "true")
 public static final String LNS_USE = "lns.use";
 
 public LNSCPConfiguration()
 {
 	super();
+}
+
+public LNSCPConfiguration(Properties properties)
+{
+	super(properties);
+	this.loadDefaults();
 }
 
 /**
@@ -83,6 +90,25 @@ public String loadDefault(String key)
 		}
 	}
 	throw new NullPointerException("cant find ");
+}
+
+/**
+ * Load the default value of keys defined in @Default annotation
+ */
+public void loadDefaults()
+{
+	Field[] fields = LNSCPConfiguration.class.getFields();
+	for (Field f : fields) {
+		try {
+			String key = (String)(f.get(this));
+			if (this.getProperty(key) == null) {
+				Default ann = f.getAnnotation(Default.class);
+				this.setProperty(key, ann.value());
+			}
+		} catch (IllegalAccessException e) {
+			logOnFailure("some key");
+		}
+	}
 }
 
 }

@@ -46,8 +46,11 @@ protected class SolverProperties {
 	Integer limitFail;
 	String heuristic;
 
+	final Properties allProperties;
+
 	public SolverProperties(Properties properties)
 	{
+		this.allProperties = properties;
 		this.minimize = Boolean.parseBoolean(properties.getProperty("solver.minimize"));
 		this.lns = Boolean.parseBoolean(properties.getProperty("solver.lns"));
 
